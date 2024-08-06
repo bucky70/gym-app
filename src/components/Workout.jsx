@@ -1,8 +1,20 @@
 import React from 'react'
+import SectionWrapper from './SectionWrapper'
+import ExerciseCard from './ExerciseCard'
 
-const Workout = () => {
+const Workout = (props) => {
+  const {workout} =props
+
   return (
-    <div>Workout</div>
+   <SectionWrapper id={'workout'} header={"welcome to"} title={['The', 'DANGER', ' zone']}>
+     <div className='flex flex-col gap-4'>
+       {workout.map((exercise,i)=>{
+           return <ExerciseCard exercise={exercise} key={i}/>
+       })
+       }
+
+     </div>
+   </SectionWrapper>
   )
 }
 
